@@ -1,0 +1,12 @@
+#------------------------------------------------------
+# Log level Settings
+#------------------------------------------------------
+logging:
+  pattern:
+    console: "%d %-5level %logger : %msg%n"
+    file: "%d %-5level [%thread] %logger : %msg%n"
+  level:
+    ROOT: INFO
+    org.springframework.web: INFO
+    org.springframework: INFO
+    org.apache.http: INFO
