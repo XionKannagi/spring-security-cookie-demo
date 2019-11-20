@@ -38,7 +38,7 @@ Controllerクラスへ処理が入る直前に割り込み処理として自動�
 認証処理を行ってくれます。  
 上記によってセキュリティー層という範囲で柔軟な認証処理ができます。  
 
-  <img width="1000" alt="Spring-Security.png" src="https://raw.github.com/wiki/XionKannagi/spring-security-cookie-demo/Spring-Security.png">
+  <img width="1000" alt="Spring-Security.png" src="https://raw.githubusercontent.com/XionKannagi/spring-security-cookie-demo/master/Spring-Security.png">
 
 ### 2-1. Security関連クラスの説明
  #### 1. Configurationクラス
@@ -83,11 +83,11 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         // AUTHORIZE
         .antMatcher("/v1/api/**")
           .authorizeRequests()
-            .mvcMatchers("/v1/api/no-auth")
+            .antMatchers("/v1/api/no-auth")
               .permitAll()
-            .mvcMatchers("/v1/api/auth")
+            .antMatchers("/v1/api/auth")
               .access("isAuthenticated() and hasRole('APP_USER')")
-            .anyRequest()
+            .antRequest()
               .authenticated()
         .and()
         // EXCEPTION
